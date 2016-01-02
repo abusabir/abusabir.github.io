@@ -1,0 +1,1416 @@
+
+<!doctype html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<title>Маршруты</title>
+
+
+	<link rel="stylesheet" href="css/bootstrap.css">
+	<link rel="stylesheet" href="css/style.css">
+	
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	<script src="http://api-maps.yandex.ru/2.1/?lang=ru_RU&onload=onLoad"></script>
+
+	
+</head>
+<body  style="background-color: #5babb9;">
+
+	<!-- Шапка страницы -->
+	
+	<div class="header-block text-center">
+		<div class="">
+			<div class="container-fluid">
+				<div class="row-fluid">
+					<div class="col-xs-4 logo-block centering-y text-left">
+						<a href="/"><img src="img/logo.png" class="logo-img" alt="logotype"></a>
+					</div>
+					<div class="col-xs-8 centering-y">
+						<div class="head-contact-block text-right">
+							<div class="inline-block margin-right-14 adress">СПб, Московский проспект 97а (10:00 - 22:00)</div>
+							<div class="inline-block font-24 phone">8&nbsp;800&nbsp;375&nbsp;75&nbsp;75</div>
+						</div>
+						<div class="head-menu-block text-right">
+							<ul>
+								<li><a href="#">О JATA</a></li>
+								<li><a href="#">Как это работает?</a></li>
+								<li><a href="#">Рекламные места</a></li>
+								<li><a href="#">Блог</a></li>
+								<li><a href="#">Контакты</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+		
+	<!-- Шапка для страницы -->
+	<div class="container-fluid">
+		<div class="row row-fluid">
+			<div class="profile-name centering-y text-center">
+				<a href="/" class="inline-block color-fff padding-top-21 padding-bottom-21">
+					<span class="block b">
+						Пупкин Василий
+					</span>
+					<span class="block font-14">
+						pupkin-vasilii@mail.ru
+					</span>
+				</a>
+			</div>
+			<div class="page-title-block centering-y padding-top-21 padding-bottom-21 color-fff">
+				<div class="container-fluid">
+					<div class="row row-fluid">
+						<div class="col-sm-9 centering-y padding-left-35 padding-right-14 font-24 page-title">
+							<i class="myicon ico-man"></i>Мои маршруты
+						</div> 
+						<div class="col-sm-3 centering-y text-center">
+							<a href="#" data-toggle="modal" class="color-fff font-14 n">
+								<i class="glyphicon glyphicon-plus"></i>Добавить маршрут
+							</a>
+						</div> 
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	
+	<div id="wrapper">
+
+		
+
+		<!--
+		/*
+		 * Боковое меню владельца ТС
+		 */
+	-->
+		<nav class="navbar-static-side" role="navigation">
+            <div>
+                <ul class="nav">
+                                       
+                    <li class="active">
+                        <a href="#"><i class="myicon ico-man"></i><span class="nav-label">Профиль</span> </a>
+                    </li> 
+                	<li>
+                        <a href="#"><i class="myicon ico-auto"></i> <span class="nav-label">Мои ТС</span> </a>
+                    </li>
+                    
+                    <li>
+                        <a href="#"><i class="myicon ico-marshrut"></i> <span class="nav-label">Мои маршруты</span> </a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="myicon ico-massage"></i>
+							<span class="nav-label">Сообщения<span class="badge">4</span></span>
+						</a>
+                    </li>
+                    <li>
+                        <a href="#">
+                        	<i class="myicon ico-rupor"></i>
+                        	<span class="nav-label">Предложения рекламодателей <span class="badge">7</span></span>
+                        	
+						</a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="myicon ico-rouble"></i> <span class="nav-label">Биллинг</span> </a>
+                    </li> 
+                    <li>
+                        <a href="#"><i class="myicon ico-clock"></i> <span class="nav-label">История рботы</span> </a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="myicon ico-door"></i> <span class="nav-label">Выход</span> </a>
+                    </li>              
+                </ul>
+
+            </div>
+        </nav>
+		<!-- Боковое меню владельца ТС -->
+
+
+	
+	
+		<!-- Контентная часть -->
+		<div id="page-wrapper" class="bg-color-fff">
+			
+				
+						
+			<div class="row">
+				<div class="col-xs-12 padding-top-21">
+					<div class="wrapper wrapper-content">
+
+						<!-- Content -->                    
+						<div class="row">
+
+							<!-- Конструирование маршрута -->
+							<form action="" id="add_route" method="post" name="add_route">
+								<div class="panel padding-left-14 padding-right-14">
+									<div class="panel-heading font-18 color-fff" style="background: #5BABB9;">
+										<div class="row">
+											<div class="col-xs-7">
+												Добавление маршрута
+											</div>
+											<div class="col-xs-5 centering-y text-right">
+											<a href="#" class="font-14 margin-right-21 color-fff">
+													<i class="glyphicon glyphicon-cog"></i>
+													Изменить маршрут
+											</a>
+											</div>
+										</div>
+									</div>
+									<div class="panel-body form-with-map-right" style="border: 1px solid #5BABB9;">
+										<div class="row padding-bottom-21 message-before-content">
+											<div class="col-xs-12 clear">
+												<small>
+													Задайте примерный маршрут курсирования для вашего транспорта
+												</small>
+											</div>
+										</div>
+								<!--		{% if cars == [] %}  -->
+											<div class="alert alert-warning alert-dismissible">
+												<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true"></span></button>
+												<i class="glyphicon glyphicon glyphicon-info-sign padding-right-7"></i>Вы пока что не создали ни одного транспортного средства. 
+											</div>
+								<!--		{% else %} -->
+										<div class="row padding-bottom-21 ">
+											<div class="col-xs-6">
+												<label>Выберите транспорт *</label>
+												<div class="field padding-bottom-14">
+													<select class="input-sm form-control" name="car_id" id="car_id">
+														<option selected>Mercedes-Benz AMG GLE Coupe 2016</option>
+														<option>Mercedes-Benz</option>
+													</select>
+												</div>													
+											</div>
+											<div class="col-xs-6">
+												<label>Тип перемещения *</label>
+												<div class="field padding-bottom-14">
+													<select class="input-sm form-control" name="route_type" id="route_type">
+														<option value>Выберите вариант</option>
+														<option value="1">Заданный маршрут</option>
+														<option value="2">Курсирование по району</option>
+														<option value="3">Случайное перемещение</option>
+													</select>
+													<span class="show_on_blured_and_invalid hide">Выберите вариант перемещения</span>
+												</div>
+											</div>
+										</div>
+											
+										<div class="row padding-bottom-21 ">
+											<div class="col-xs-5">
+												<div class="row padding-bottom-14">
+												
+													<div class="col-xs-12 padding-bottom-14">
+														<label for="ts_change" class="margin-top-0">Название маршрута *</label>
+														<div class="input-group-sm">
+															<input name="route_name" class="input-sm input-with-x">																</div>
+													</div>
+													
+													<!-- 4.1: ПАРАМЕТРЫ "ЗАДАННОГО МАРШРУТА" -->
+													<div class="fix-route hide" data-xp="type: 'fields', classed: {on: '[id=route_type] != 1', do: 'hide'}">
+														<div class="col-xs-12 padding-bottom-14">
+															<div class="input-group input-group-sm">
+																<div class="radio">
+																	<input type="radio" name="ts_route_direction" id="one_direction" value="one_direction" checked>
+																	<label for="one_direction">Маршрут в одну сторону</label>
+																</div>
+																<div class="radio">
+																	<input type="radio" name="ts_route_direction" id="two_direction" value="two_direction">
+																	<label for="two_direction">Маршрут "туда и обратно"</label>
+																</div>
+															</div>
+														</div>
+												
+														<!-- Ввод данных по всем точкам "Заданного маршрута" -->
+														<div class="col-xs-12 padding-bottom-14">
+
+														
+															<!-- Ввод начальной точки маршрута -->
+															<div class="ts-route-point padding-bottom-14">
+																<div class="input-group input-group-sm">
+																	<span class="input-group-addon">
+																		<i class="glyphicon glyphicon-home font-14"></i>
+																	</span>
+																	<!-- Умный поиск -->
+																	<!-- При клке по карте сразу отображается адрес, либо надо ввести более 3-х символов, чтобы отобразились варианты -->
+																	<input name="ts_route_start" id="ts_route_start" class="form-control input-with-x" placeholder="Начало маршрута" list="ts_route_start_var" data-xp="search_from_start: false" />
+																	<!-- / Умный поиск -->
+																</div>
+																<!-- Найденные варианты через умный поиск -->
+																<!-- Выпадающее меню, появляющееся при вводе в умный поиск более 3-х символов, т.е. подгружаем результаты в option-ы при вводе более 3-симв (напрмер, "Энгельса 15")-->
+															<!--	<select name="ts_route_start_var" id="ts_route_start_var" class="select-dropdown">
+																	<option value="1">Санкт-Петербург, улица Энгельса 15</option>
+																	<option value="2">Москва, проспект Энгельса 15</option>
+																	<option value="3">Чебоксары, бульвар Энгельса 15</option>
+																	<option value="4">Иркутск, площадь Энгельса 15</option>
+																</select> -->
+																<!-- / Найденные варианты через умный поиск -->
+															</div>
+															<!-- / Ввод начальной точки маршрута -->	
+
+														
+															<!-- Ввод конечной точки маршрута -->	
+															<div class="ts-route-point padding-bottom-14">
+																<div class="input-group input-group-sm">
+																	<span class="input-group-addon">
+																		<i class="glyphicon glyphicon-globe font-14"></i>
+																	</span>
+																	<!-- Умный поиск -->
+																	<!-- При клке по карте сразу отображается адрес, либо надо ввести более 3-х символов, чтобы отобразились варианты -->
+																	<input name="ts_route_finish" id="ts_route_finish" class="form-control input-with-x" data-xp="enabled: '[name=ts_route_start]', search_from_start: false" list="ts_route_finish_var" placeholder="Конец маршрута" />
+																	<!-- / Умный поиск -->
+																</div>
+																<!-- Найденные варианты через умный поиск -->
+																<!-- Выпадающее меню, появляющееся при вводе в умный поиск более 3-х символов, т.е. подгружаем результаты в option-ы при вводе более 3-симв (напрмер, "Энгельса 15")-->
+															<!--	<select name="ts_route_finish_var" id="ts_route_finish_var" class="select-dropdown">
+																	<option value="1">Санкт-Петербург, улица Энгельса 15</option>
+																	<option value="2">Москва, проспект Энгельса 15</option>
+																	<option value="3">Чебоксары, бульвар Энгельса 15</option>
+																	<option value="4">Иркутск, площадь Энгельса 15</option>
+																</select> -->
+																<!-- / Найденные варианты через умный поиск -->
+															</div>
+															<!-- Ввод конечной точки маршрута -->												
+														
+														
+															<!-- ВременнЫе параметры маршрута -->
+															
+															<label class="margin-bottom-0">Дни передвижения</label>
+															<div>
+																<!-- Дни-время -->
+																<div class="col-xs-6 padding-0">
+																	<div class="radio margin-top-7">
+																		<input type="radio" name="ts_route_days" id="ts_route_days_budni" value="ts_route_days_weekdays" checked data-xp="enabled: '[name=ts_route_finish]'">
+																		<label for="ts_route_days_budni">Будние</label>
+																	</div>
+																	<div class="radio margin-top-7">
+																		<input type="radio" name="ts_route_days" id="ts_route_days_ezzednevno" value="ts_route_days_alldays" data-xp="enabled: '[name=ts_route_finish]'">
+																		<label for="ts_route_days_ezzednevno">Ежедневно</label>
+																	</div>
+																</div>
+																<div class="col-xs-6 padding-0">
+																	<div class="radio margin-top-7">
+																		<input type="radio" name="ts_route_days" id="ts_route_days_vyhodnye" value="ts_route_days_weekend" data-xp="enabled: '[name=ts_route_finish]'">
+																		<label for="ts_route_days_vyhodnye">Выходные</label>
+																	</div>
+																	<div class="radio margin-top-7">
+																		<input type="radio" name="ts_route_days" id="ts_route_days_custom" value="ts_route_days_custom" data-xp="enabled: '[name=ts_route_finish]'">
+																		<label for="ts_route_days_custom">Произвольно</label>
+																	</div>
+																</div>
+																<div class="col-xs-12 padding-left-0 padding-top-7">
+																		<span class="show_on_blured_and_invalid hide">Выберите дни передвижения</span>
+																</div>
+																
+																<div data-xp="type: 'fields', classed: {on: '[id=ts_route_days_custom] != \'ts_route_days_custom\'', do: 'hide'}"><!-- Дни: произвольно -->
+																<div class="col-xs-12 padding-0"> <!-- Пн -->
+																	<div class="checkbox col-xs-2 padding-0 margin-top-5">
+																		<input type="checkbox" name="ts_route_days_custom_mon" id="ts_route_days_custom_mon" value="days_mon" checked="checked">
+																		<label for="ts_route_days_custom_mon">Пн</label>
+																	</div>
+																	<div class="col-xs-10 padding-0">
+																		<div class="" data-xp="type: 'fields', classed: {on: '[id=ts_route_days_custom_mon] != \'days_mon\'', do: 'hide'}">
+																			<div class="col-xs-5 padding-0">
+																				<div class="input-group input-group-sm bootstrap-timepicker timepicker">
+																					<input name="days_mon_start" class="form-control input-small timepicker-input-start">
+																					<span class="input-group-addon">
+																						<i class="glyphicon glyphicon-time font-14"></i>
+																					</span>
+																				</div>
+																			</div>
+																			<div class="col-xs-1 padding-0 text-center">&ndash;</div>
+																			<div class="col-xs-5 padding-0">
+																				<div class="input-group input-group-sm bootstrap-timepicker timepicker">
+																					<input name="days_mon_end" class="form-control input-small timepicker-input-end">
+																					<span class="input-group-addon">
+																						<i class="glyphicon glyphicon-time font-14"></i>
+																					</span>
+																				</div>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+																<div class="col-xs-12 padding-0"> <!-- Вт -->
+																	<div class="checkbox col-xs-2 padding-0 margin-top-5">
+																		<input type="checkbox" name="ts_route_days_custom_tue" id="ts_route_days_custom_tue" value="days_tue" checked="checked">
+																		<label for="ts_route_days_custom_tue">Вт</label>
+																	</div>
+																	<div class="col-xs-10 padding-0">
+																		<div class="" data-xp="type: 'fields', classed: {on: '[id=ts_route_days_custom_tue] != \'days_tue\'', do: 'hide'}">
+																			<div class="col-xs-5 padding-0">
+																				<div class="input-group input-group-sm bootstrap-timepicker timepicker">
+																					<input name="days_tue_start" class="form-control input-small timepicker-input-start">
+																					<span class="input-group-addon">
+																						<i class="glyphicon glyphicon-time font-14"></i>
+																					</span>
+																				</div>
+																			</div>
+																			<div class="col-xs-1 padding-0 text-center">&ndash;</div>
+																			<div class="col-xs-5 padding-0">
+																				<div class="input-group input-group-sm bootstrap-timepicker timepicker">
+																					<input name="days_tue_end" class="form-control input-small timepicker-input-end">
+																					<span class="input-group-addon">
+																						<i class="glyphicon glyphicon-time font-14"></i>
+																					</span>
+																				</div>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+																<div class="col-xs-12 padding-0"> <!-- Ср -->
+																	<div class="checkbox col-xs-2 padding-0 margin-top-5">
+																		<input type="checkbox" name="ts_route_days_custom_wed" id="ts_route_days_custom_wed" value="days_wed" checked="checked">
+																		<label for="ts_route_days_custom_wed">Ср</label>
+																	</div>
+																	<div class="col-xs-10 padding-0">
+																		<div class="" data-xp="type: 'fields', classed: {on: '[id=ts_route_days_custom_wed] != \'days_wed\'', do: 'hide'}">
+																			<div class="col-xs-5 padding-0">
+																				<div class="input-group input-group-sm bootstrap-timepicker timepicker">
+																					<input name="days_wed_start" class="form-control input-small timepicker-input-start">
+																					<span class="input-group-addon">
+																						<i class="glyphicon glyphicon-time font-14"></i>
+																					</span>
+																				</div>
+																			</div>
+																			<div class="col-xs-1 padding-0 text-center">&ndash;</div>
+																			<div class="col-xs-5 padding-0">
+																				<div class="input-group input-group-sm bootstrap-timepicker timepicker">
+																					<input name="days_wed_end" class="form-control input-small timepicker-input-end">
+																					<span class="input-group-addon">
+																						<i class="glyphicon glyphicon-time font-14"></i>
+																					</span>
+																				</div>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+																<div class="col-xs-12 padding-0"> <!-- Чт -->
+																	<div class="checkbox col-xs-2 padding-0 margin-top-5">
+																		<input type="checkbox" name="ts_route_days_custom_thu" id="ts_route_days_custom_thu" value="days_thu" checked="checked">
+																		<label for="ts_route_days_custom_thu">Чт</label>
+																	</div>
+																	<div class="col-xs-10 padding-0">
+																		<div class="" data-xp="type: 'fields', classed: {on: '[id=ts_route_days_custom_thu] != \'days_thu\'', do: 'hide'}">
+																			<div class="col-xs-5 padding-0">
+																				<div class="input-group input-group-sm bootstrap-timepicker timepicker">
+																					<input name="days_thu_start" class="form-control input-small timepicker-input-start">
+																					<span class="input-group-addon">
+																						<i class="glyphicon glyphicon-time font-14"></i>
+																					</span>
+																				</div>
+																			</div>
+																			<div class="col-xs-1 padding-0 text-center">&ndash;</div>
+																			<div class="col-xs-5 padding-0">
+																				<div class="input-group input-group-sm bootstrap-timepicker timepicker">
+																					<input name="days_thu_end" class="form-control input-small timepicker-input-end">
+																					<span class="input-group-addon">
+																						<i class="glyphicon glyphicon-time font-14"></i>
+																					</span>
+																				</div>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+																<div class="col-xs-12 padding-0"> <!-- Пт -->
+																	<div class="checkbox col-xs-2 padding-0 margin-top-5">
+																		<input type="checkbox" name="ts_route_days_custom_fri" id="ts_route_days_custom_fri" value="days_fri" checked="checked">
+																		<label for="ts_route_days_custom_fri">Пт</label>
+																	</div>
+																	<div class="col-xs-10 padding-0">
+																		<div class="" data-xp="type: 'fields', classed: {on: '[id=ts_route_days_custom_fri] != \'days_fri\'', do: 'hide'}">
+																			<div class="col-xs-5 padding-0">
+																				<div class="input-group input-group-sm bootstrap-timepicker timepicker">
+																					<input name="days_fri_start" class="form-control input-small timepicker-input-start">
+																					<span class="input-group-addon">
+																						<i class="glyphicon glyphicon-time font-14"></i>
+																					</span>
+																				</div>
+																			</div>
+																			<div class="col-xs-1 padding-0 text-center">&ndash;</div>
+																			<div class="col-xs-5 padding-0">
+																				<div class="input-group input-group-sm bootstrap-timepicker timepicker">
+																					<input name="days_fri_end" class="form-control input-small timepicker-input-end">
+																					<span class="input-group-addon">
+																						<i class="glyphicon glyphicon-time font-14"></i>
+																					</span>
+																				</div>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+																<div class="col-xs-12 padding-0"> <!-- Сб -->
+																	<div class="checkbox col-xs-2 padding-0 margin-top-5">
+																		<input type="checkbox" name="ts_route_days_custom_sat" id="ts_route_days_custom_sat" value="days_sat" checked="checked">
+																		<label for="ts_route_days_custom_sat">Сб</label>
+																	</div>
+																	<div class="col-xs-10 padding-0">
+																		<div class="" data-xp="type: 'fields', classed: {on: '[id=ts_route_days_custom_sat] != \'days_sat\'', do: 'hide'}">
+																			<div class="col-xs-5 padding-0">
+																				<div class="input-group input-group-sm bootstrap-timepicker timepicker">
+																					<input name="days_sat_start" class="form-control input-small timepicker-input-start">
+																					<span class="input-group-addon">
+																						<i class="glyphicon glyphicon-time font-14"></i>
+																					</span>
+																				</div>
+																			</div>
+																			<div class="col-xs-1 padding-0 text-center">&ndash;</div>
+																			<div class="col-xs-5 padding-0">
+																				<div class="input-group input-group-sm bootstrap-timepicker timepicker">
+																					<input name="days_sat_end" class="form-control input-small timepicker-input-end">
+																					<span class="input-group-addon">
+																						<i class="glyphicon glyphicon-time font-14"></i>
+																					</span>
+																				</div>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+																<div class="col-xs-12 padding-0"> <!-- Вс -->
+																	<div class="checkbox col-xs-2 padding-0 margin-top-5">
+																		<input type="checkbox" name="ts_route_days_custom_sun" id="ts_route_days_custom_sun" value="days_sun" checked="checked">
+																		<label for="ts_route_days_custom_sun">Вс</label>
+																	</div>
+																	<div class="col-xs-10 padding-0">
+																		<div class="" data-xp="type: 'fields', classed: {on: '[id=ts_route_days_custom_sun] != \'days_sun\'', do: 'hide'}">
+																			<div class="col-xs-5 padding-0">
+																				<div class="input-group input-group-sm bootstrap-timepicker timepicker">
+																					<input name="days_sun_start" class="form-control input-small timepicker-input-start">
+																					<span class="input-group-addon">
+																						<i class="glyphicon glyphicon-time font-14"></i>
+																					</span>
+																				</div>
+																			</div>
+																			<div class="col-xs-1 padding-0 text-center">&ndash;</div>
+																			<div class="col-xs-5 padding-0">
+																				<div class="input-group input-group-sm bootstrap-timepicker timepicker">
+																					<input name="days_sun_end" class="form-control input-small timepicker-input-end">
+																					<span class="input-group-addon">
+																						<i class="glyphicon glyphicon-time font-14"></i>
+																					</span>
+																				</div>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+																</div>
+																<!-- / Дни-время -->
+															</div>
+															
+															<div data-xp="type: 'fields', classed: {on: '[id=ts_route_days_custom] == \'ts_route_days_custom\'', do: 'hide'}">
+															<label>Примерное время поездки *</label>
+															<div>
+																<div class="col-xs-5 padding-0">
+																	<div class="input-group input-group-sm bootstrap-timepicker timepicker">
+																		<input type="text" class="form-control input-small timepicker-input-start" data-xp="enabled: '[name=ts_route_finish]'">
+																		<span class="input-group-addon">
+																			<i class="glyphicon glyphicon-time font-14"></i>
+																		</span>
+																	</div>
+																</div>
+																<div class="col-xs-1 padding-0 text-center">&ndash;</div>
+																<div class="col-xs-5 padding-0">
+																	<div class="input-group input-group-sm bootstrap-timepicker timepicker">
+																		<input class="form-control input-small timepicker-input-end" data-xp="enabled: '[name=ts_route_finish]'">
+																		<span class="input-group-addon">
+																			<i class="glyphicon glyphicon-time font-14"></i>
+																		</span>
+																	</div>
+																</div>
+																<div class="col-xs-12 padding-left-0 padding-top-7">
+																	<span class="show_on_blured_and_invalid hide">Выберите время  начала движения</span>
+																</div>
+															</div>
+															<!-- / ВременнЫе параметры маршрута -->
+															</div>
+
+
+															<!-- Ввод промежуточной точки маршрута -->
+															<label class="margin-top-7">Промежуточные точки поездки</label>
+															<div class="ts-route-point fields padding-bottom-14" data-xp="name: 'ts_route_add_point', repeat: true">
+																<div class="input-group input-group-sm">
+																	<span class="input-group-addon">
+																		<i class="glyphicon glyphicon-pushpin font-14"></i>
+																	</span>
+																	<!-- Умный поиск -->
+																	<!-- При клке по карте сразу отображается адрес, либо надо ввести более 3-х символов, чтобы отобразились варианты -->
+																	<input name="ts_route_intermediate_point" id="ts_route_intermediate_point" class="form-control input-with-x" data-xp="enabled: '[name=ts_route_start]', search_from_start: false" list="ts_route_intermediate_var" placeholder="Промежуточная точка" />
+																	<!-- / Умный поиск -->
+																	<span class="input-group-btn">
+																		<span class="btn btn-default repeat_remove_button">&ndash;</span>
+																		<span class="btn btn-default repeat_append_button" >+</span>
+																	</span>
+
+																</div>
+																<!-- Найденные варианты через умный поиск -->
+																<!-- Выпадающее меню, появляющееся при вводе в умный поиск более 3-х символов, т.е. подгружаем результаты в option-ы при вводе более 3-симв (напрмер, "Энгельса 15")-->
+															<!--	<select name="ts_route_intermediate_var" id="ts_route_intermediate_var" class="select-dropdown">
+																	<option value="1">Санкт-Петербург, улица Энгельса 15</option>
+																	<option value="2">Москва, проспект Энгельса 15</option>
+																	<option value="3">Чебоксары, бульвар Энгельса 15</option>
+																	<option value="4">Иркутск, площадь Энгельса 15</option>
+																</select> -->
+																<!-- / Найденные варианты через умный поиск -->
+															</div>
+															<!-- Ввод промежуточной точки маршрута -->									
+													
+													
+													
+													
+													
+													
+														
+															<!-- Данные по ОБРАТНОМУ маршруту -->
+															<div data-xp="type: 'fields', classed: {on: '[id=two_direction] != \'two_direction\'', do: 'hide'}">
+																
+																<!-- Временные параметры ОБРАТНОГО маршрута -->
+																<div data-xp="type: 'fields', classed: {on: '[id=ts_route_days_custom] != \'ts_route_days_custom\'', do: 'hide'}"><!-- Дни: произвольно -->
+																<label>Примерное время движения обратно*</label>
+																<div class="col-xs-12 padding-0"> <!-- Пн -->
+																	<div class="checkbox col-xs-2 padding-0 margin-top-5">
+																		<input type="checkbox" name="ts_reverse_route_days_custom_mon" id="ts_reverse_route_days_custom_mon" value="days_mon" checked="checked">
+																		<label for="ts_reverse_route_days_custom_mon">Пн</label>
+																	</div>
+																	<div class="col-xs-10 padding-0">
+																		<div class="" data-xp="type: 'fields', classed: {on: '[id=ts_reverse_route_days_custom_mon] != \'days_mon\'', do: 'hide'}">
+																			<div class="col-xs-5 padding-0">
+																				<div class="input-group input-group-sm bootstrap-timepicker timepicker">
+																					<input name="days_mon_start_2" class="form-control input-small timepicker-input-start">
+																					<span class="input-group-addon">
+																						<i class="glyphicon glyphicon-time font-14"></i>
+																					</span>
+																				</div>
+																			</div>
+																			<div class="col-xs-1 padding-0 text-center">&ndash;</div>
+																			<div class="col-xs-5 padding-0">
+																				<div class="input-group input-group-sm bootstrap-timepicker timepicker">
+																					<input name="days_mon_end_2" class="form-control input-small timepicker-input-end">
+																					<span class="input-group-addon">
+																						<i class="glyphicon glyphicon-time font-14"></i>
+																					</span>
+																				</div>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+																<div class="col-xs-12 padding-0"> <!-- Вт -->
+																	<div class="checkbox col-xs-2 padding-0 margin-top-5">
+																		<input type="checkbox" name="ts_reverse_route_days_custom_tue" id="ts_reverse_route_days_custom_tue" value="days_tue" checked="checked">
+																		<label for="ts_reverse_route_days_custom_tue">Вт</label>
+																	</div>
+																	<div class="col-xs-10 padding-0">
+																		<div class="" data-xp="type: 'fields', classed: {on: '[id=ts_reverse_route_days_custom_tue] != \'days_tue\'', do: 'hide'}">
+																			<div class="col-xs-5 padding-0">
+																				<div class="input-group input-group-sm bootstrap-timepicker timepicker">
+																					<input name="days_tue_start_2" class="form-control input-small timepicker-input-start">
+																					<span class="input-group-addon">
+																						<i class="glyphicon glyphicon-time font-14"></i>
+																					</span>
+																				</div>
+																			</div>
+																			<div class="col-xs-1 padding-0 text-center">&ndash;</div>
+																			<div class="col-xs-5 padding-0">
+																				<div class="input-group input-group-sm bootstrap-timepicker timepicker">
+																					<input name="days_tue_end_2" class="form-control input-small timepicker-input-end">
+																					<span class="input-group-addon">
+																						<i class="glyphicon glyphicon-time font-14"></i>
+																					</span>
+																				</div>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+																<div class="col-xs-12 padding-0"> <!-- Ср -->
+																	<div class="checkbox col-xs-2 padding-0 margin-top-5">
+																		<input type="checkbox" name="ts_reverse_route_days_custom_wed" id="ts_reverse_route_days_custom_wed" value="days_wed" checked="checked">
+																		<label for="ts_reverse_route_days_custom_wed">Ср</label>
+																	</div>
+																	<div class="col-xs-10 padding-0">
+																		<div class="" data-xp="type: 'fields', classed: {on: '[id=ts_reverse_route_days_custom_wed] != \'days_wed\'', do: 'hide'}">
+																			<div class="col-xs-5 padding-0">
+																				<div class="input-group input-group-sm bootstrap-timepicker timepicker">
+																					<input name="days_wed_start_2" class="form-control input-small timepicker-input-start">
+																					<span class="input-group-addon">
+																						<i class="glyphicon glyphicon-time font-14"></i>
+																					</span>
+																				</div>
+																			</div>
+																			<div class="col-xs-1 padding-0 text-center">&ndash;</div>
+																			<div class="col-xs-5 padding-0">
+																				<div class="input-group input-group-sm bootstrap-timepicker timepicker">
+																					<input name="days_wed_end_2" class="form-control input-small timepicker-input-end">
+																					<span class="input-group-addon">
+																						<i class="glyphicon glyphicon-time font-14"></i>
+																					</span>
+																				</div>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+																<div class="col-xs-12 padding-0"> <!-- Чт -->
+																	<div class="checkbox col-xs-2 padding-0 margin-top-5">
+																		<input type="checkbox" name="ts_reverse_route_days_custom_thu" id="ts_reverse_route_days_custom_thu" value="days_thu" checked="checked">
+																		<label for="ts_reverse_route_days_custom_thu">Чт</label>
+																	</div>
+																	<div class="col-xs-10 padding-0">
+																		<div class="" data-xp="type: 'fields', classed: {on: '[id=ts_reverse_route_days_custom_thu] != \'days_thu\'', do: 'hide'}">
+																			<div class="col-xs-5 padding-0">
+																				<div class="input-group input-group-sm bootstrap-timepicker timepicker">
+																					<input name="days_thu_start_2" class="form-control input-small timepicker-input-start">
+																					<span class="input-group-addon">
+																						<i class="glyphicon glyphicon-time font-14"></i>
+																					</span>
+																				</div>
+																			</div>
+																			<div class="col-xs-1 padding-0 text-center">&ndash;</div>
+																			<div class="col-xs-5 padding-0">
+																				<div class="input-group input-group-sm bootstrap-timepicker timepicker">
+																					<input name="days_thu_end_2" class="form-control input-small timepicker-input-end">
+																					<span class="input-group-addon">
+																						<i class="glyphicon glyphicon-time font-14"></i>
+																					</span>
+																				</div>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+																<div class="col-xs-12 padding-0"> <!-- Пт -->
+																	<div class="checkbox col-xs-2 padding-0 margin-top-5">
+																		<input type="checkbox" name="ts_reverse_route_days_custom_fri" id="ts_reverse_route_days_custom_fri" value="days_fri" checked="checked">
+																		<label for="ts_reverse_route_days_custom_fri">Пт</label>
+																	</div>
+																	<div class="col-xs-10 padding-0">
+																		<div class="" data-xp="type: 'fields', classed: {on: '[id=ts_reverse_route_days_custom_fri] != \'days_fri\'', do: 'hide'}">
+																			<div class="col-xs-5 padding-0">
+																				<div class="input-group input-group-sm bootstrap-timepicker timepicker">
+																					<input name="days_fri_start_2" class="form-control input-small timepicker-input-start">
+																					<span class="input-group-addon">
+																						<i class="glyphicon glyphicon-time font-14"></i>
+																					</span>
+																				</div>
+																			</div>
+																			<div class="col-xs-1 padding-0 text-center">&ndash;</div>
+																			<div class="col-xs-5 padding-0">
+																				<div class="input-group input-group-sm bootstrap-timepicker timepicker">
+																					<input name="days_fri_end_2" class="form-control input-small timepicker-input-end">
+																					<span class="input-group-addon">
+																						<i class="glyphicon glyphicon-time font-14"></i>
+																					</span>
+																				</div>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+																<div class="col-xs-12 padding-0"> <!-- Сб -->
+																	<div class="checkbox col-xs-2 padding-0 margin-top-5">
+																		<input type="checkbox" name="ts_reverse_route_days_custom_sat" id="ts_reverse_route_days_custom_sat" value="days_sat" checked="checked">
+																		<label for="ts_reverse_route_days_custom_sat">Сб</label>
+																	</div>
+																	<div class="col-xs-10 padding-0">
+																		<div class="" data-xp="type: 'fields', classed: {on: '[id=ts_reverse_route_days_custom_sat] != \'days_sat\'', do: 'hide'}">
+																			<div class="col-xs-5 padding-0">
+																				<div class="input-group input-group-sm bootstrap-timepicker timepicker">
+																					<input name="days_sat_start_2" class="form-control input-small timepicker-input-start">
+																					<span class="input-group-addon">
+																						<i class="glyphicon glyphicon-time font-14"></i>
+																					</span>
+																				</div>
+																			</div>
+																			<div class="col-xs-1 padding-0 text-center">&ndash;</div>
+																			<div class="col-xs-5 padding-0">
+																				<div class="input-group input-group-sm bootstrap-timepicker timepicker">
+																					<input name="days_sat_end_2" class="form-control input-small timepicker-input-end">
+																					<span class="input-group-addon">
+																						<i class="glyphicon glyphicon-time font-14"></i>
+																					</span>
+																				</div>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+																<div class="col-xs-12 padding-0"> <!-- Вс -->
+																	<div class="checkbox col-xs-2 padding-0 margin-top-5">
+																		<input type="checkbox" name="ts_reverse_route_days_custom_sun" id="ts_reverse_route_days_custom_sun" value="days_sun" checked="checked">
+																		<label for="ts_reverse_route_days_custom_sun">Вс</label>
+																	</div>
+																	<div class="col-xs-10 padding-0">
+																		<div class="" data-xp="type: 'fields', classed: {on: '[id=ts_reverse_route_days_custom_sun] != \'days_sun\'', do: 'hide'}">
+																			<div class="col-xs-5 padding-0">
+																				<div class="input-group input-group-sm bootstrap-timepicker timepicker">
+																					<input name="days_sun_start_2" class="form-control input-small timepicker-input-start">
+																					<span class="input-group-addon">
+																						<i class="glyphicon glyphicon-time font-14"></i>
+																					</span>
+																				</div>
+																			</div>
+																			<div class="col-xs-1 padding-0 text-center">&ndash;</div>
+																			<div class="col-xs-5 padding-0">
+																				<div class="input-group input-group-sm bootstrap-timepicker timepicker">
+																					<input name="days_sun_end_2" class="form-control input-small timepicker-input-end">
+																					<span class="input-group-addon">
+																						<i class="glyphicon glyphicon-time font-14"></i>
+																					</span>
+																				</div>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+																</div>
+																
+																
+																
+																<div data-xp="type: 'fields', classed: {on: '[id=ts_route_days_custom] == \'ts_route_days_custom\'', do: 'hide'}">
+																	<label>Примерное время обратной поездки*</label>
+																	<div class="col-xs-5 padding-0">
+																		<div class="input-group input-group-sm bootstrap-timepicker timepicker">
+																			<input type="text" class="form-control input-small timepicker-input-start" data-xp="enabled: '[name=ts_route_finish]'">
+																			<span class="input-group-addon">
+																				<i class="glyphicon glyphicon-time font-14"></i>
+																			</span>
+																		</div>
+																	</div>
+																	<div class="col-xs-1 padding-0 text-center">&ndash;</div>
+																	<div class="col-xs-5 padding-0">
+																		<div class="input-group input-group-sm bootstrap-timepicker timepicker">
+																			<input type="text" class="form-control input-small timepicker-input-end" data-xp="enabled: '[name=ts_route_finish]'">
+																			<span class="input-group-addon">
+																				<i class="glyphicon glyphicon-time font-14"></i>
+																			</span>
+																		</div>
+																	</div>
+																	<div class="col-xs-12 padding-left-0 padding-top-7">
+																		<span class="show_on_blured_and_invalid hide">Выберите время  начала движения</span>
+																	</div>
+																</div>
+																<!-- / Временные параметры ОБРАТНОГО маршрута -->
+																
+																
+																<!-- Ввод промежуточной точки ОБРАТНОГО маршрута -->
+																<label class="margin-top-7">Промежуточные точки по пути обратно</label>
+																<div class="ts-route-point fields padding-bottom-14" data-xp="name: 'ts_reverse_route_add_point', repeat: true">
+																	<div class="input-group input-group-sm">
+																		<span class="input-group-addon">
+																			<i class="glyphicon glyphicon-pushpin font-14"></i>
+																		</span>
+																		<!-- Умный поиск -->
+																		<!-- При клке по карте сразу отображается адрес, либо надо ввести более 3-х символов, чтобы отобразились варианты -->
+																		<input name="ts_reverse_route_intermediate_point" id="ts_reverse_route_intermediate_point" class="form-control input-with-x" data-xp="enabled: '[name=ts_route_start]', search_from_start: false" list="ts_reverse_route_intermediate_var" placeholder="Промежуточная точка обратного маршрута" />
+																		<!-- / Умный поиск -->
+																		<span class="input-group-btn">
+																			<span class="btn btn-default repeat_remove_button">&ndash;</span>
+																			<span class="btn btn-default repeat_append_button" >+</span>
+																		</span>
+																	</div>
+																	<!-- Найденные варианты через умный поиск -->
+																	<!-- Выпадающее меню, появляющееся при вводе в умный поиск более 3-х символов, т.е. подгружаем результаты в option-ы при вводе более 3-симв (напрмер, "Энгельса 15")-->
+																<!--	<select name="ts_reverse_route_intermediate_var" id="ts_reverse_route_intermediate_var" class="select-dropdown">
+																		<option value="1">Санкт-Петербург, улица Энгельса 15</option>
+																		<option value="2">Москва, проспект Энгельса 15</option>
+																		<option value="3">Чебоксары, бульвар Энгельса 15</option>
+																		<option value="4">Иркутск, площадь Энгельса 15</option>
+																	</select> -->
+																	<!-- / Найденные варианты через умный поиск -->
+																</div>
+																<!-- / Ввод промежуточной точки ОБРАТНОГО маршрута -->
+																
+															</div>
+															<!-- / Данные по ОБРАТНОМУ маршруту -->
+
+															
+														</div>
+														<!-- / Ввод данных по всем точкам "Заданного маршрута" -->
+														
+														<!-- Комментарий к "Заданному маршруту" -->
+														<div class="col-xs-12">
+															<label class="margin-top-7">Произвольный комментарй к маршруту</label>
+															<textarea class="form-control" rows="3" name="ts_route_comment"></textarea>
+														</div>
+														<!-- Комментарий к "Заданному маршруту" -->
+														
+													</div>
+													<!-- / 4.1: ПАРАМЕТРЫ "ЗАДАННОГО МАРШРУТА" -->
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													
+													<!-- 4.2: ПАРАМЕТРЫ "КУРСИРОВАНИЯ ПО РАЙОНУ" -->
+													<div class="district-route hide" data-xp="type: 'fields', classed: {on: '[id=route_type] != 2', do: 'hide'}">
+														<!-- Выбор района -->
+														<div class="col-xs-12">
+																													
+															<!-- Поск по районам города -->
+													<!--		<label class="margin-top-0">Укажите район в пределах города</label>
+															<div class="ts-route-district-select fields padding-bottom-14"  data-xp="name: 'ts_route_add_district', repeat: true">
+																<div class="input-group input-group-sm"> -->
+																	<!-- Умный поиск -->
+													<!--				<input name="ts_route_district" id="ts_route_district" class="form-control input-with-x" placeholder="Район города" list="ts_route_district_var" data-xp="search_from_start: false" /> -->
+																	<!-- / Умный поиск -->
+													<!--				<span class="input-group-btn">
+																			<span class="btn btn-default repeat_remove_button">&ndash;</span>
+																			<span class="btn btn-default repeat_append_button" >+</span>
+																	</span>
+																</div>
+																<div class="col-xs-12 padding-left-0 padding-top-7">
+																		<span class="show_on_blured_and_invalid hide">Задайте хотя бы один район</span>
+																	</div> -->
+																<!-- Найденные варианты через умный поиск -->
+																<!-- Выпадающее меню, появляющееся при вводе в умный поиск более 3-х символов, т.е. подгружаем результаты в option-ы при вводе более 3-симв -->
+														<!--		<select name="ts_route_district_var" id="ts_route_district_var" class="select-dropdown">
+																	<option value="1">Фрунзенский район</option>
+																	<option value="2">Калининский район</option>
+																	<option value="3">Московский район</option>
+																	<option value="4">Красногвардейскй район</option>
+																</select> -->
+																<!-- / Найденные варианты через умный поиск -->
+														<!--	</div> -->
+															<!-- / Поск по районам города -->
+															
+															<div class="ts-route-point padding-bottom-14">
+																	<div class="input-group input-group-sm">
+																		<span class="input-group-addon">
+																			<i class="glyphicon glyphicon-home font-14"></i>
+																		</span>
+																		<input name="ts_route_district" id="ts_route_district" class="form-control input-with-x" placeholder="Район города" />
+																	</div>
+																	<!-- <select name="ts_route_district_var" id="ts_route_district_var" class="select-dropdown">
+																		<option value="1">Фрунзенский район</option>
+																		<option value="2">Калининский район</option>
+																		<option value="3">Московский район</option>
+																		<option value="4">Красногвардейскй район</option>
+																	</select> -->
+																</div>
+														</div>
+														<!-- Выбор района -->
+														
+														
+														<!-- ВременнЫе параметры маршрута -->
+														<div class="col-xs-12">	
+															<label class="margin-bottom-0">Дни передвижения</label>
+															<div>
+																<!-- Дни-время -->
+																<div class="col-xs-6 padding-0">
+																	<div class="radio margin-top-7">
+																		<input type="radio" name="ts_route_district_days" id="ts_route_district_days_weekdays" value="ts_route_district_days_weekdays" checked>
+																		<label for="ts_route_district_days_weekdays">Будние</label>
+																	</div>
+																	<div class="radio margin-top-7">
+																		<input type="radio" name="ts_route_district_days" id="ts_route_district_days_alldays" value="ts_route_district_days_alldays">
+																		<label for="ts_route_district_days_alldays">Ежедневно</label>
+																	</div>
+																</div>
+																<div class="col-xs-6 padding-0">
+																	<div class="radio margin-top-7">
+																		<input type="radio" name="ts_route_district_days" id="ts_route_district_days_weekend" value="ts_route_district_days_weekend">
+																		<label for="ts_route_district_days_weekend">Выходные</label>
+																	</div>
+																	<div class="radio margin-top-7">
+																		<input type="radio" name="ts_route_district_days" id="ts_route_district_days_custom" value="ts_route_district_days_custom">
+																		<label for="ts_route_district_days_custom">Произвольно</label>
+																	</div>
+																</div>
+																<div class="col-xs-12 padding-left-0 padding-top-7">
+																		<span class="show_on_blured_and_invalid hide">Выберите дни передвижения</span>
+																</div>
+																
+																<div data-xp="type: 'fields', classed: {on: '[id=ts_route_district_days_custom] != \'ts_route_district_days_custom\'', do: 'hide'}"><!-- Дни: произвольно -->
+																<div class="col-xs-12 padding-0"> <!-- Пн -->
+																	<div class="checkbox col-xs-2 padding-0 margin-top-5">
+																		<input type="checkbox" name="ts_route_district_days_custom_mon" id="ts_route_district_days_custom_mon" value="days_mon" checked="checked">
+																		<label for="ts_route_district_days_custom_mon">Пн</label>
+																	</div>
+																	<div class="col-xs-10 padding-0">
+																		<div class="" data-xp="type: 'fields', classed: {on: '[id=ts_route_district_days_custom_mon] != \'days_mon\'', do: 'hide'}">
+																			<div class="col-xs-5 padding-0">
+																				<div class="input-group input-group-sm bootstrap-timepicker timepicker">
+																					<input name="days_mon_start_district" class="form-control input-small timepicker-input-start">
+																					<span class="input-group-addon">
+																						<i class="glyphicon glyphicon-time font-14"></i>
+																					</span>
+																				</div>
+																			</div>
+																			<div class="col-xs-1 padding-0 text-center">&ndash;</div>
+																			<div class="col-xs-5 padding-0">
+																				<div class="input-group input-group-sm bootstrap-timepicker timepicker">
+																					<input name="days_mon_end_district" class="form-control input-small timepicker-input-end">
+																					<span class="input-group-addon">
+																						<i class="glyphicon glyphicon-time font-14"></i>
+																					</span>
+																				</div>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+																<div class="col-xs-12 padding-0"> <!-- Вт -->
+																	<div class="checkbox col-xs-2 padding-0 margin-top-5">
+																		<input type="checkbox" name="ts_route_district_days_custom_tue" id="ts_route_district_days_custom_tue" value="days_tue" checked="checked">
+																		<label for="ts_route_district_days_custom_tue">Вт</label>
+																	</div>
+																	<div class="col-xs-10 padding-0">
+																		<div class="" data-xp="type: 'fields', classed: {on: '[id=ts_route_district_days_custom_tue] != \'days_tue\'', do: 'hide'}">
+																			<div class="col-xs-5 padding-0">
+																				<div class="input-group input-group-sm bootstrap-timepicker timepicker">
+																					<input name="days_tue_start_district" class="form-control input-small timepicker-input-start">
+																					<span class="input-group-addon">
+																						<i class="glyphicon glyphicon-time font-14"></i>
+																					</span>
+																				</div>
+																			</div>
+																			<div class="col-xs-1 padding-0 text-center">&ndash;</div>
+																			<div class="col-xs-5 padding-0">
+																				<div class="input-group input-group-sm bootstrap-timepicker timepicker">
+																					<input name="days_tue_end_district" class="form-control input-small timepicker-input-end">
+																					<span class="input-group-addon">
+																						<i class="glyphicon glyphicon-time font-14"></i>
+																					</span>
+																				</div>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+																<div class="col-xs-12 padding-0"> <!-- Ср -->
+																	<div class="checkbox col-xs-2 padding-0 margin-top-5">
+																		<input type="checkbox" name="ts_route_district_days_custom_wed" id="ts_route_district_days_custom_wed" value="days_wed" checked="checked">
+																		<label for="ts_route_district_days_custom_wed">Ср</label>
+																	</div>
+																	<div class="col-xs-10 padding-0">
+																		<div class="" data-xp="type: 'fields', classed: {on: '[id=ts_route_district_days_custom_wed] != \'days_wed\'', do: 'hide'}">
+																			<div class="col-xs-5 padding-0">
+																				<div class="input-group input-group-sm bootstrap-timepicker timepicker">
+																					<input name="days_wed_start_district" class="form-control input-small timepicker-input-start">
+																					<span class="input-group-addon">
+																						<i class="glyphicon glyphicon-time font-14"></i>
+																					</span>
+																				</div>
+																			</div>
+																			<div class="col-xs-1 padding-0 text-center">&ndash;</div>
+																			<div class="col-xs-5 padding-0">
+																				<div class="input-group input-group-sm bootstrap-timepicker timepicker">
+																					<input name="days_wed_end_district" class="form-control input-small timepicker-input-end">
+																					<span class="input-group-addon">
+																						<i class="glyphicon glyphicon-time font-14"></i>
+																					</span>
+																				</div>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+																<div class="col-xs-12 padding-0"> <!-- Чт -->
+																	<div class="checkbox col-xs-2 padding-0 margin-top-5">
+																		<input type="checkbox" name="ts_route_district_days_custom_thu" id="ts_route_district_days_custom_thu" value="days_thu" checked="checked">
+																		<label for="ts_route_district_days_custom_thu">Чт</label>
+																	</div>
+																	<div class="col-xs-10 padding-0">
+																		<div class="" data-xp="type: 'fields', classed: {on: '[id=ts_route_district_days_custom_thu] != \'days_thu\'', do: 'hide'}">
+																			<div class="col-xs-5 padding-0">
+																				<div class="input-group input-group-sm bootstrap-timepicker timepicker">
+																					<input name="days_thu_start_district" class="form-control input-small timepicker-input-start">
+																					<span class="input-group-addon">
+																						<i class="glyphicon glyphicon-time font-14"></i>
+																					</span>
+																				</div>
+																			</div>
+																			<div class="col-xs-1 padding-0 text-center">&ndash;</div>
+																			<div class="col-xs-5 padding-0">
+																				<div class="input-group input-group-sm bootstrap-timepicker timepicker">
+																					<input name="days_thu_end_district" class="form-control input-small timepicker-input-end">
+																					<span class="input-group-addon">
+																						<i class="glyphicon glyphicon-time font-14"></i>
+																					</span>
+																				</div>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+																<div class="col-xs-12 padding-0"> <!-- Пт -->
+																	<div class="checkbox col-xs-2 padding-0 margin-top-5">
+																		<input type="checkbox" name="ts_route_district_days_custom_fri" id="ts_route_district_days_custom_fri" value="days_fri" checked="checked">
+																		<label for="ts_route_district_days_custom_fri">Пт</label>
+																	</div>
+																	<div class="col-xs-10 padding-0">
+																		<div class="" data-xp="type: 'fields', classed: {on: '[id=ts_route_district_days_custom_fri] != \'days_fri\'', do: 'hide'}">
+																			<div class="col-xs-5 padding-0">
+																				<div class="input-group input-group-sm bootstrap-timepicker timepicker">
+																					<input name="days_fri_start_district" class="form-control input-small timepicker-input-start">
+																					<span class="input-group-addon">
+																						<i class="glyphicon glyphicon-time font-14"></i>
+																					</span>
+																				</div>
+																			</div>
+																			<div class="col-xs-1 padding-0 text-center">&ndash;</div>
+																			<div class="col-xs-5 padding-0">
+																				<div class="input-group input-group-sm bootstrap-timepicker timepicker">
+																					<input name="days_fri_end_district" class="form-control input-small timepicker-input-end">
+																					<span class="input-group-addon">
+																						<i class="glyphicon glyphicon-time font-14"></i>
+																					</span>
+																				</div>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+																<div class="col-xs-12 padding-0"> <!-- Сб -->
+																	<div class="checkbox col-xs-2 padding-0 margin-top-5">
+																		<input type="checkbox" name="ts_route_district_days_custom_sat" id="ts_route_district_days_custom_sat" value="days_sat" checked="checked">
+																		<label for="ts_route_district_days_custom_sat">Сб</label>
+																	</div>
+																	<div class="col-xs-10 padding-0">
+																		<div class="" data-xp="type: 'fields', classed: {on: '[id=ts_route_district_days_custom_sat] != \'days_sat\'', do: 'hide'}">
+																			<div class="col-xs-5 padding-0">
+																				<div class="input-group input-group-sm bootstrap-timepicker timepicker">
+																					<input name="days_sat_start_district" class="form-control input-small timepicker-input-start">
+																					<span class="input-group-addon">
+																						<i class="glyphicon glyphicon-time font-14"></i>
+																					</span>
+																				</div>
+																			</div>
+																			<div class="col-xs-1 padding-0 text-center">&ndash;</div>
+																			<div class="col-xs-5 padding-0">
+																				<div class="input-group input-group-sm bootstrap-timepicker timepicker">
+																					<input name="days_sat_end_district" class="form-control input-small timepicker-input-end">
+																					<span class="input-group-addon">
+																						<i class="glyphicon glyphicon-time font-14"></i>
+																					</span>
+																				</div>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+																<div class="col-xs-12 padding-0"> <!-- Вс -->
+																	<div class="checkbox col-xs-2 padding-0 margin-top-5">
+																		<input type="checkbox" name="ts_route_district_days_custom_sun" id="ts_route_district_days_custom_sun" value="days_sun" checked="checked">
+																		<label for="ts_route_district_days_custom_sun">Вс</label>
+																	</div>
+																	<div class="col-xs-10 padding-0">
+																		<div class="" data-xp="type: 'fields', classed: {on: '[id=ts_route_district_days_custom_sun] != \'days_sun\'', do: 'hide'}">
+																			<div class="col-xs-5 padding-0">
+																				<div class="input-group input-group-sm bootstrap-timepicker timepicker">
+																					<input name="days_sun_start_district" class="form-control input-small timepicker-input-start">
+																					<span class="input-group-addon">
+																						<i class="glyphicon glyphicon-time font-14"></i>
+																					</span>
+																				</div>
+																			</div>
+																			<div class="col-xs-1 padding-0 text-center">&ndash;</div>
+																			<div class="col-xs-5 padding-0">
+																				<div class="input-group input-group-sm bootstrap-timepicker timepicker">
+																					<input name="days_sun_end_district" class="form-control input-small timepicker-input-end">
+																					<span class="input-group-addon">
+																						<i class="glyphicon glyphicon-time font-14"></i>
+																					</span>
+																				</div>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+																</div>
+																<!-- / Дни-время -->
+															</div>
+															<div data-xp="type: 'fields', classed: {on: '[id=ts_route_district_days_custom] == \'ts_route_district_days_custom\'', do: 'hide'}">
+																<label>Примерное время поездки *</label>
+																<div>
+																	<div class="col-xs-5 padding-0">
+																		<div class="input-group input-group-sm bootstrap-timepicker timepicker">
+																			<input name="route_time_start" type="text" class="form-control input-small timepicker-input-start" data-xp="enabled: '[name=ts_route_district]'">
+																			<span class="input-group-addon">
+																				<i class="glyphicon glyphicon-time font-14"></i>
+																			</span>
+																		</div>
+																	</div>
+																	<div class="col-xs-1 padding-0 text-center">&ndash;</div>
+																	<div class="col-xs-5 padding-0">
+																		<div class="input-group input-group-sm bootstrap-timepicker timepicker">
+																			<input name="route_time_end" class="form-control input-small timepicker-input-end" data-xp="enabled: '[name=ts_route_district]'">
+																			<span class="input-group-addon">
+																				<i class="glyphicon glyphicon-time font-14"></i>
+																			</span>
+																		</div>
+																	</div>
+																	<div class="col-xs-12 padding-left-0 padding-top-7">
+																		<span class="show_on_blured_and_invalid hide">Выберите время  начала движения</span>
+																	</div>
+																</div>
+																<!-- / ВременнЫе параметры маршрута -->
+																</div>
+														</div>
+														
+														<!-- Комментарий к "Районам" -->
+														<div class="col-xs-12">
+															<label class="margin-top-7">Произвольный комментарй к маршруту</label>
+															<textarea class="form-control" rows="3" name="ts_route_district_comment"></textarea>
+														</div>
+														<!-- Комментарий к "Заданному маршруту" -->
+														
+													</div>
+													<!-- / 4.2: ПАРАМЕТРЫ "КУРСИРОВАНИЯ ПО РАЙОНУ" -->
+													
+													
+													
+													
+													
+													
+													
+													
+													<!-- 4.3: ПАРАМЕТРЫ "СЛУЧАЙНОГО ПЕРЕМЕЩЕНИЯ" -->
+													<div class="3-route random-route hide" data-xp="type: 'fields', classed: {on: '[id=route_type] != 3', do: 'hide'}">
+														<!-- Выбор местности -->
+														<div class="col-xs-12">
+															<label class="margin-top-14">Случайное передвижение в пределах *</label>
+															<div class="ts-route-random-select fields padding-bottom-14">
+																<div class="radio margin-top-7">
+																	<input type="radio" name="ts_route_3_var" id="ts_route_random_spb" value="1" checked="checked">
+																	<label for="ts_route_random_spb">Санкт-Петербурга</label>
+																</div>
+																<div class="radio margin-top-7">
+																	<input type="radio" name="ts_route_3_var" id="ts_route_random_len" value="2">
+																	<label for="ts_route_random_len">Ленобласти</label>
+																</div>
+																<div class="radio margin-top-7">
+																	<input type="radio" name="ts_route_3_var" id="ts_route_random_spblen" value="3">
+																	<label for="ts_route_random_spblen">Санкт-Петербурга и ЛО</label>
+																</div>
+																<div class="col-xs-12 padding-left-0">
+																	<span class="show_on_blured_and_invalid hide">Задайте хотя бы один вариант</span>
+																</div>
+																
+															</div>
+															<!-- / Поск по районам города -->
+														</div>
+														<!-- Выбор местности -->
+													
+													
+														<div  class="col-xs-12">
+															<label class="margin-top-0">Примерное время поездки *</label>
+															<div>
+																<div class="col-xs-5 padding-0">
+																	<div class="input-group input-group-sm bootstrap-timepicker timepicker">
+																		<input name="ts_route_3_start" class="form-control input-small timepicker-input-start">
+																		<span class="input-group-addon">
+																			<i class="glyphicon glyphicon-time font-14"></i>
+																		</span>
+																	</div>
+																</div>
+																<div class="col-xs-1 padding-0 text-center">&ndash;</div>
+																<div class="col-xs-5 padding-0">
+																	<div class="input-group input-group-sm bootstrap-timepicker timepicker">
+																		<input name="ts_route_3_end" class="form-control input-small timepicker-input-end">
+																		<span class="input-group-addon">
+																			<i class="glyphicon glyphicon-time font-14"></i>
+																		</span>
+																	</div>
+																</div>
+																<div class="col-xs-12 padding-left-0 padding-top-7">
+																	<span class="show_on_blured_and_invalid hide">Выберите время  начала движения</span>
+																</div>
+															</div>
+															<!-- / ВременнЫе параметры маршрута -->
+														</div>
+														
+														<div class="col-xs-12">
+															<label class="margin-top-14">Средний пробег за день *</label>
+															<div class="input-group input-group-sm">	
+																<input name="ts_route_3_length" class="form-control input-with-x">														
+																<span class="input-group-addon">
+																	км
+																</span>
+															</div>
+															<span class="show_on_blured_and_invalid hide">Укажите пробег</span>
+														</div>
+														
+														<!-- Комментарий к "Случайному перемещению" -->
+														<div class="col-xs-12">
+															<label class="margin-top-14">Произвольный комментарй к маршруту</label>
+															<textarea class="form-control" rows="3" name="ts_route_3_comment"></textarea>
+														</div>
+														<!-- Комментарий к "Заданному маршруту" -->
+													</div>
+													<!-- / 4.3: ПАРАМЕТРЫ "СЛУЧАЙНОГО ПЕРЕМЕЩЕНИЯ" -->
+													
+													
+
+													
+												</div>
+											</div>
+											<div class="col-xs-7">
+												<div id="map" class="map-movement"></div>
+												<!--<input type="button" value="Включить редактор маршрута" id="editor" name="start"/>-->
+											</div>
+										</div>
+														
+											
+										
+									</div>
+									<div class="panel-footer" style="background: #5BABB9;">
+										<div class="row">
+											<div class="col-xs-4"></div>
+											<div class="col-xs-8 text-right">
+												<button class="btn btn-blue btn-lg" id="submit_and_add" name="submit_and_add">Сохранить и добавить новый</button>
+												<button class="btn btn-blue btn-lg" id="submit" name="submit">Сохранить изменения</button>
+											</div>
+										</div>
+									</div>
+							<!--		{% endif %}  -->
+								</div>
+							</form>
+							<!-- / Конструирование маршрута -->
+
+						</div> <!-- END row -->
+						<!-- END Content -->
+
+
+					</div>
+				</div>
+			</div>
+				
+
+        </div>
+		<!-- Контентная часть -->
+	
+	</div>	
+	
+	
+	 
+
+
+<!-- Всплывающее окно изменения Телефонного номера -->
+<div id="modal_change_phonenumber_form" class="modal fade"  tabindex="-1"  role="dialog">
+	<form action="">
+	  <div class="modal-dialog modal-md">
+		<div class="modal-content">
+		
+		 <div class="modal-body">
+			<div class="row">
+				<div class="col-xs-12 text-center color-red b margin-bottom-35 margin-top-7">Новый номер телефона</div>
+				<div class="col-xs-12 margin-bottom-42 text-center">
+					<input name="new_phonenumber" class="input-lg new-phonenumber tel-number phone" placeholder="+7 (___) ___-__-__">
+					<span class="status-input"></span>
+					<div class="show_on_blured_and_invalid">Данный номер уже есть в системе</div>
+				</div>
+				<div class="col-xs-12 text-center margin-bottom-14">
+					<button type="button" class="btn btn-a" data-dismiss="modal" aria-hidden="true">Отмена</button>
+					<button class="btn btn-blue">Получить код</button>
+				</div>
+			</div>
+		 </div>
+	   </div>
+	 </div>
+	</form>	
+</div>	
+
+
+
+
+
+<!-- Всплывающее окно c вводом SMS-кода -->
+<div id="modal_smscode_form" class="modal fade">
+ 	<div class="modal-dialog modal-md">
+    	<div class="modal-content">
+			<div class="modal-body">
+				<div class="text-center font-24 margin-top-14 margin-bottom-14">
+					Для подтверждения вам выслан одноразовый SMS-код
+				</div>
+				<div class="text-center font-24 color-red margin-bottom-14">
+					Введите код
+				</div>
+				<div class="text-center">
+					<form action=""  name='smscode' class="text-left inline-block">
+						<div class="margin-bottom-14">
+							<input name="new_smscode" type="text" class="input-lg text-center">
+							<span class="status-input"></span>
+							<div class="show_on_blured_and_invalid hide">СМС-код введен неверно</div>
+						</div>
+						<div class="text-center margin-bottom-14">
+							<button type="submit" name="send_new_sms" class="btn-a re margin-bottom-7" onClick="document.smscode.action='/api/sms/send'; document.smscode.submit(); return true;" disabled="disabled">SMS не пришло (20 сек)</button><br>
+							<button type="submit" name="send_new_sms" class="btn-a margin-bottom-14" onClick="document.smscode.action='/api/sms/send'; document.smscode.submit(); return true;">Пропустить</button>
+						</div>
+						<div class="text-center margin-bottom-14">
+							<button class="btn btn-transparent btn-lg smscode-submit" style="width: 45%;">ОК</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	 </div>
+</div>
+
+
+
+
+<!-- Всплывающее окно изменения E-mail -->
+<div id="modal_change_email_form" class="modal fade"  tabindex="-1"  role="dialog">
+	<form action="">
+	  <div class="modal-dialog modal-md">
+		<div class="modal-content">
+		
+		 <div class="modal-body">
+			<div class="row">
+				<div class="col-xs-12 text-center color-red b margin-bottom-42">Новый E-mail</div>
+				<div class="col-xs-12 margin-bottom-35 margin-top-7 text-center">
+					<input name="new_email" class="input-lg new-email email" >
+					<span class="status-input"></span>
+					<div class="show_on_blured_and_invalid hide">Введите валидный e-mail</div>
+				</div>
+				<div class="col-xs-12 text-center margin-bottom-14">
+					<button type="button" class="btn btn-a" data-dismiss="modal" aria-hidden="true">Отмена</button>
+					<button class="btn btn-blue">Сохранить</button>
+				</div>
+			</div>
+		 </div>
+	   </div>
+	 </div>
+	</form>	
+</div>	
+
+
+
+
+
+
+
+	
+	<script src="js/bootstrap.js" type="text/javascript"></script>
+	<script src="js/expromptum.js" type="text/javascript"></script>
+	<script src="js/fotorama.js"></script>
+	<script src="js/my.js"></script>
+	<script src="js/route.js"></script>		
+	
+	
+	<script type="text/javascript">
+		$("#add_route").submit(function(e) {
+		    var formData = new FormData($(this)[0]);
+		    $.ajax({
+		           type: "POST",
+		           url: "/api/routes/add",
+		           data: formData,
+		           async: false,
+				   cache: false,
+				   contentType: false,
+				   processData: false,
+		           success: function(data)
+		           {
+		           		var xhttp = new XMLHttpRequest();
+		           		xhttp.open("POST", "/login", false);
+						xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+						xhttp.send(data);
+						window.location="/api/routes/show";
+		           },
+		           error: function(data)
+		           {
+		                alert("ERROR: " + JSON.parse(data.responseText).message);
+		           }
+		         });
+		    e.preventDefault();
+		});
+		
+	</script>
+	
+	
+</body>
+</html>

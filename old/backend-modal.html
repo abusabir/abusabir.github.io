@@ -1,0 +1,129 @@
+
+
+
+<!-- Всплывающее окно изменения Телефонного номера -->
+<div id="modal_change_phonenumber_form" class="modal fade"  tabindex="-1"  role="dialog">
+	<form action="">
+	  <div class="modal-dialog modal-md">
+		<div class="modal-content">
+		
+		 <div class="modal-body">
+			<div class="row">
+				<div class="col-xs-12 text-center color-red b margin-bottom-35 margin-top-7">Новый номер телефона</div>
+				<div class="col-xs-12 margin-bottom-42 text-center">
+					<input name="new_phonenumber" class="input-lg new-phonenumber tel-number phone" placeholder="+7 (___) ___-__-__">
+					<span class="status-input"></span>
+					<div class="show_on_blured_and_invalid">Данный номер уже есть в системе</div>
+				</div>
+				<div class="col-xs-12 text-center margin-bottom-14">
+					<button type="button" class="btn btn-a" data-dismiss="modal" aria-hidden="true">Отмена</button>
+					<button class="btn btn-blue">Получить код</button>
+				</div>
+			</div>
+		 </div>
+	   </div>
+	 </div>
+	</form>	
+</div>	
+
+
+
+
+
+<!-- Всплывающее окно c вводом SMS-кода -->
+<div id="modal_smscode_form" class="modal fade">
+ 	<div class="modal-dialog modal-md">
+    	<div class="modal-content">
+			<div class="modal-body">
+				<div class="text-center font-24 margin-top-14 margin-bottom-14">
+					Для подтверждения вам выслан одноразовый SMS-код
+				</div>
+				<div class="text-center font-24 color-red margin-bottom-14">
+					Введите код
+				</div>
+				<div class="text-center">
+					<form action=""  name='smscode' class="text-left inline-block">
+						<div class="margin-bottom-14">
+							<input name="new_smscode" type="text" class="input-lg text-center">
+							<span class="status-input"></span>
+							<div class="show_on_blured_and_invalid hide">СМС-код введен неверно</div>
+						</div>
+						<div class="text-center margin-bottom-14">
+							<button type="submit" name="send_new_sms" class="btn-a re margin-bottom-7" onClick="document.smscode.action='/api/sms/send'; document.smscode.submit(); return true;" disabled="disabled">SMS не пришло (20 сек)</button><br>
+							<button type="submit" name="send_new_sms" class="btn-a margin-bottom-14" onClick="document.smscode.action='/api/sms/send'; document.smscode.submit(); return true;">Пропустить</button>
+						</div>
+						<div class="text-center margin-bottom-14">
+							<button class="btn btn-transparent btn-lg smscode-submit" style="width: 45%;">ОК</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	 </div>
+</div>
+
+
+
+
+<!-- Всплывающее окно изменения E-mail -->
+<div id="modal_change_email_form" class="modal fade"  tabindex="-1"  role="dialog">
+	<form action="">
+	  <div class="modal-dialog modal-md">
+		<div class="modal-content">
+		
+		 <div class="modal-body">
+			<div class="row">
+				<div class="col-xs-12 text-center color-red b margin-bottom-42">Новый E-mail</div>
+				<div class="col-xs-12 margin-bottom-35 margin-top-7 text-center">
+					<input name="new_email" class="input-lg new-email email" >
+					<span class="status-input"></span>
+					<div class="show_on_blured_and_invalid hide">Введите валидный e-mail</div>
+				</div>
+				<div class="col-xs-12 text-center margin-bottom-14">
+					<button type="button" class="btn btn-a" data-dismiss="modal" aria-hidden="true">Отмена</button>
+					<button class="btn btn-blue">Сохранить</button>
+				</div>
+			</div>
+		 </div>
+	   </div>
+	 </div>
+	</form>	
+</div>	
+
+
+
+
+
+
+<div id="Modal-delete-ts" class="modal fade">
+	<form action="" method="post">
+	  <div class="modal-dialog">
+		<div class="modal-content">
+		  <div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+			<h4 class="modal-title">Подтверждение действия</h4>
+		  </div>
+
+		 <div class="modal-body">
+			<div class="row">
+				<div class="col-xs-12">
+					<p>Внимание: изменения необратимы.</p>
+					<p>Вы точно хотите удалить данное ТС из нашей базы?</p>
+				</div>
+			 </div>
+		 </div>
+
+		<div class="modal-footer">
+			<div class="row">
+				<div class="col-xs-12">
+					<button class="btn btn-primary" name="action_ts" value="delete_ts" style="vertical-align:middle">Да, удалить ТС</button>
+					<button class="btn btn-primary" data-dismiss="modal" aria-hidden="true">Отмена</button>
+				</div>
+
+			</div>
+		</div>
+	  </div>
+	</div>
+	</form>	
+</div>
+
