@@ -9,6 +9,7 @@ $bg-dark-red: #8a474e;
 $bg-light-red: #bb6062;
 $bg-light-blue: #5babb9;
 $bg-dark-blue: #2a92a4;
+$text-light-blue: #178a9d;
 
 * {
   box-sizing: border-box;
@@ -27,7 +28,7 @@ ul {
 
 .container {
   margin: 0 auto;
-  width: 98%;
+  width: 100%;
 }
 
 .clearfix {
@@ -139,6 +140,7 @@ ul {
 }
 
 .sidebar-menu-list__link {
+  position: relative;
   vertical-align: middle;
   display: block;
   min-height: 70px;
@@ -147,10 +149,12 @@ ul {
   text-decoration: none;
   font-size: 18px;
   color: $white;
-  &:hover {
+  &:hover, &.active{
     background: $bg-dark-blue;
   }
 }
+
+
 
 
 .main-content {
@@ -161,20 +165,92 @@ ul {
 
 .main-content__header {
   height: 95px;
-  padding: 0 55px;
+  padding: 0 45px;
   background: $bg-light-red;
 }
 
 .main-content__header__title {
   display: block;
+  position: relative;
   float:left;
-  padding: 36px 0 36px 55px;
+  padding: 36px 0 36px 65px;
   margin: 0;
   font-family: 'Open Sans', sans-serif;
   font-size: 20px;
   line-height: 20px;
   font-weight: bold;
   color: $white;
+}
+
+.ico-before {
+  &:before {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 20px;
+    width: 50px;
+    height: 50px;
+    background-repeat: no-repeat;
+  }
+}
+
+.ico-before-sidebar {
+  &:before {
+    width: 45px;
+    height: 45px;
+    top: 15px;
+    left: 15px;
+
+  }
+}
+
+.ico-profile {
+  &:before {
+    background-image: url("../i/profile-ico.svg");
+  }
+}
+
+.ico-ts {
+  &:before {
+    background-image: url("../i/ts-ico.svg");
+  }
+}
+
+.ico-routes {
+  &:before {
+    background-image: url("../i/routes-ico.svg");
+  }
+}
+
+.ico-messages {
+  &:before {
+    background-image: url("../i/messages-ico.svg");
+  }
+}
+
+.ico-megafon {
+  &:before {
+    background-image: url("../i/megafon-ico.svg");
+  }
+}
+
+.ico-billing {
+  &:before {
+    background-image: url("../i/billing-ico.svg");
+  }
+}
+
+.ico-history {
+  &:before {
+    background-image: url("../i/history-ico.svg");
+  }
+}
+
+.ico-exit {
+  &:before {
+    background-image: url("../i/exit-ico.svg");
+  }
 }
 
 .main-content__header__settings-link {
@@ -208,7 +284,57 @@ ul {
 
 .profile-field__lcell {
   display: table-cell;
-  padding: 5px 0 25px 55px;
+  padding: 10px 0 25px 55px;
   height: 35px;
   width: 380px;
+}
+
+.main-content__title {
+  display: block;
+  padding: 0 0 15px 55px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  color: $text-light-blue;
+}
+
+.main-content__title-link {
+  text-decoration: none;
+}
+
+.user-transport-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.user-transport-list-item {
+  position: relative;
+  padding: 0 0 0 235px;
+}
+
+.user-transport-list-item__img-cell {
+  position: absolute;
+  left: 0;
+  top:0;
+  width: 180px;
+  height: 180px;
+  border: 1px solid $text-dark-blue;
+  border-radius: 10px;
+}
+
+.user-transport-list-item__info {
+
+}
+
+.user-transport-list-item__title {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  color: $text-dark-blue;
+}
+
+.transport-img {
+  width: 100%;
+  height: 100%;
 }
