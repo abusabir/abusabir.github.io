@@ -96,7 +96,7 @@ a:hover {
    ========================================================================== */
 /**
  * Address styling not present in IE 8/9/10/11, Safari, and Chrome.
- */
+F:\projects\abusabir.github.io\css\styles.css */
 abbr[title] {
   border-bottom: 1px dotted; }
 
@@ -379,7 +379,7 @@ ul {
 
 .container {
   margin: 0 auto;
-  width: 98%; }
+  width: 1024px; }
 
 .clearfix:after {
   content: '';
