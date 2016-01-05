@@ -338,6 +338,15 @@ ul {
   }
 }
 
+.ico-settings {
+  &:before {
+    width: 45px;
+    height: 45px;
+    top: 25px; 
+    background-image: url("../i/settings-ico.svg");
+  }
+}
+
 
 
 
@@ -345,6 +354,7 @@ ul {
 
 .main-content__header__settings-link {
   display: block;
+  position: relative;
   float:right;
   padding: 40px 0 40px 55px;
   text-decoration: none;
