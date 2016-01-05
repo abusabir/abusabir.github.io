@@ -113,6 +113,9 @@ ul {
   height: 95px;
   padding: 25px 0 0 25px;
   background: $bg-dark-red;
+  &:hover {
+    background: #9e1c20;
+  }
 }
 
 .sidebar__username {

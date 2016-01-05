@@ -446,6 +446,8 @@ ul {
   height: 95px;
   padding: 25px 0 0 25px;
   background: #8a474e; }
+  .sidebar__header:hover {
+    background: #9e1c20; }
 
 .sidebar__username {
   height: 1em;
