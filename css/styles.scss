@@ -44,8 +44,12 @@ ul {
   height: 127px;
 }
 
-.header-contacts, .main-menu, .sidebar-menu-list__link {
+.main-menu, .sidebar-menu-list__link {
   font-family: 'PT Sans', sans-serif;
+}
+
+.header-contacts {
+  font-family: 'Open Sans', sans-serif;
 }
 
 .logo {
@@ -68,21 +72,23 @@ ul {
 }
 
 .header-tel {
+  position: relative;
   display: inline-block;
   padding: 5px 5px 0 35px;
   text-decoration: none;
-  font-size: 24.5px;
+  font-size: 24px;
   color: $text-dark-blue;
 }
 
 .header-address {
+  position: relative;
   display: inline-block;
   padding: 5px 5px 0 35px;
-  font-size: 15px;
+  font-size: 16px;
 }
 
 .main-menu {
-  padding: 10px 0 0;
+  padding: 10px 5px 0;
   float: right;
 }
 
@@ -208,6 +214,13 @@ ul {
   }
 }
 
+.ico-before-header {
+  &:before {
+    width: 30px;
+    height: 30px;
+  }
+}
+
 .ico-profile {
   &:before {
     background-image: url("../i/profile-ico.svg");
@@ -255,6 +268,22 @@ ul {
     background-image: url("../i/exit-ico.svg");
   }
 }
+
+.ico-address {
+  &:before {
+    top: 3px;
+    background-image: url("../i/address-ico.svg");
+  }
+}
+
+.ico-phone {
+  &:before {
+    top: 8px;
+    background-image: url("../i/phone-ico.svg");
+  }
+}
+
+
 
 .main-content__header__settings-link {
   display: block;
