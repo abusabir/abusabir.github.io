@@ -8,8 +8,11 @@ $text-dark-blue: #36374c;
 $bg-dark-red: #8a474e;
 $bg-light-red: #bb6062;
 $bg-light-blue: #5babb9;
+$btn-light-blue: #3c9aa9;
+$btn-dark-red: #9c2027;
 $bg-dark-blue: #2a92a4;
 $text-light-blue: #178a9d;
+$text-red: #9e1d22;
 
 * {
   box-sizing: border-box;
@@ -229,6 +232,14 @@ ul {
   }
 }
 
+.ico-before-edit {
+  &:before {
+    width: 20px;
+    height: 20px;
+    top:15px;
+  }
+}
+
 .ico-profile {
   &:before {
     background-image: url("../i/profile-ico.svg");
@@ -321,6 +332,13 @@ ul {
   }
 }
 
+.ico-pencil {
+  &:before {
+    background-image: url("../i/pencil-ico.svg");
+  }
+}
+
+
 
 
 
@@ -360,6 +378,12 @@ ul {
   padding: 10px 0 25px 55px;
   height: 35px;
   width: 380px;
+}
+
+.profile-field__rcell {
+  display: table-cell;
+  position: relative;
+  min-width: 185px;
 }
 
 .main-content__title {
@@ -410,4 +434,30 @@ ul {
 .transport-img {
   width: 100%;
   height: 100%;
+}
+
+.edit-field-link {
+  display: block;
+  padding: 0 0 0 30px;
+  text-decoration: none;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 10px;
+  color: $text-red;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.btn-blue {
+  padding: 15px 20px;
+  background: $btn-light-blue;
+  border: 0;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 18px;
+  text-align: center;
+  color: $white;
+  border-radius: 25px;
+  &:hover {
+    background: $btn-dark-red;
+  }
 }

@@ -527,6 +527,11 @@ ul {
   height: 30px;
   top: 5px; }
 
+.ico-before-edit:before {
+  width: 20px;
+  height: 20px;
+  top: 15px; }
+
 .ico-profile:before {
   background-image: url("../i/profile-ico.svg"); }
 
@@ -574,6 +579,9 @@ ul {
 .ico-map:before {
   background-image: url("../i/map-ico.svg"); }
 
+.ico-pencil:before {
+  background-image: url("../i/pencil-ico.svg"); }
+
 .main-content__header__settings-link {
   display: block;
   float: right;
@@ -604,6 +612,11 @@ ul {
   padding: 10px 0 25px 55px;
   height: 35px;
   width: 380px; }
+
+.profile-field__rcell {
+  display: table-cell;
+  position: relative;
+  min-width: 185px; }
 
 .main-content__title {
   display: block;
@@ -643,5 +656,27 @@ ul {
 .transport-img {
   width: 100%;
   height: 100%; }
+
+.edit-field-link {
+  display: block;
+  padding: 0 0 0 30px;
+  text-decoration: none;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 10px;
+  color: #9e1d22; }
+  .edit-field-link:hover {
+    text-decoration: underline; }
+
+.btn-blue {
+  padding: 15px 20px;
+  background: #3c9aa9;
+  border: 0;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 18px;
+  text-align: center;
+  color: #ffffff;
+  border-radius: 25px; }
+  .btn-blue:hover {
+    background: #9c2027; }
 
 /*# sourceMappingURL=styles.css.map */
