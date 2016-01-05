@@ -426,7 +426,7 @@ ul {
   font-size: 16px; }
 
 .main-menu {
-  padding: 10px  0;
+  padding: 10px 5px 0;
   float: right; }
 
 .main-menu-list {
@@ -522,6 +522,11 @@ ul {
   width: 30px;
   height: 30px; }
 
+.ico-before-content:before {
+  width: 30px;
+  height: 30px;
+  top: 5px; }
+
 .ico-profile:before {
   background-image: url("../i/profile-ico.svg"); }
 
@@ -554,6 +559,21 @@ ul {
   top: 8px;
   background-image: url("../i/phone-ico.svg"); }
 
+.ico-person:before {
+  background-image: url("../i/person-ico.svg"); }
+
+.ico-date:before {
+  background-image: url("../i/date-ico.svg"); }
+
+.ico-mobile:before {
+  background-image: url("../i/mobile-ico.svg"); }
+
+.ico-email:before {
+  background-image: url("../i/email-ico.svg"); }
+
+.ico-map:before {
+  background-image: url("../i/map-ico.svg"); }
+
 .main-content__header__settings-link {
   display: block;
   float: right;
@@ -580,6 +600,7 @@ ul {
 
 .profile-field__lcell {
   display: table-cell;
+  position: relative;
   padding: 10px 0 25px 55px;
   height: 35px;
   width: 380px; }
