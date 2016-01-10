@@ -102,61 +102,51 @@
        </header>
 
        <div class="main-content__page">
-         <div class="profile__fields full-name">
+         <form class="profile__fields">
+
            <div class="profile-field">
-             <div class="profile-field__lcell ico-before ico-before-content ico-person">Фамилия:</div>
-             <div class="profile-field__rcell">Иванов</div>
+             <label class="profile-field__label" for="family-name">Фамилия *</label>
+             <input type="text" name="family-name" id="family-name" class="profile-field__input profile-field__input-disabled" value="Иванов" disabled>
            </div>
 
            <div class="profile-field">
-             <div class="profile-field__lcell">Имя:</div>
-             <div class="profile-field__rcell">Иван</div>
+             <label class="profile-field__label" for="first-name">Имя *</label>
+             <input type="text" name="first-name" id="first-name" class="profile-field__input profile-field__input-disabled" value="Иван" disabled>
            </div>
 
            <div class="profile-field">
-             <div class="profile-field__lcell">Отчество:</div>
-             <div class="profile-field__rcell">Иванович</div>
-           </div>
-         </div>
-
-         <div class="profile__fields">
-           <div class="profile-field">
-             <div class="profile-field__lcell ico-before ico-before-content ico-date">Дата рождения:</div>
-             <div class="profile-field__rcell">01.01.1991</div>
+             <label class="profile-field__label" for="middle-name">Отчество *</label>
+             <input type="text" name="middle-name" id="middle-name" class="profile-field__input profile-field__input-disabled" value="Иванович" disabled>
            </div>
 
            <div class="profile-field">
-             <div class="profile-field__lcell ico-before ico-before-content ico-mobile">Телефон:</div>
-             <div class="profile-field__rcell">+7 *** *** ** 55</div>
-             <div class="profile-field__rcell"><a href="" class="edit-field-link ico-before ico-before-edit ico-pencil">Редактировать</a></div>
+             <label class="profile-field__label" for="middle-name">Дата рождения *</label>
+             <input type="date" name="birthday" id="birthday" class="profile-field__input profile-field__input-disabled " value="1991-01-01" disabled>
+             <span class="ico-after ico-date"></span>
            </div>
 
            <div class="profile-field">
-             <div class="profile-field__lcell ico-before ico-before-content ico-email">E-mail:</div>
-             <div class="profile-field__rcell">****@mail.ru</div>
-             <div class="profile-field__rcell"><a href="" class="edit-field-link ico-before ico-before-edit ico-pencil">Редактировать</a></div>
+             <label class="profile-field__label" for="phone"></label>
+             <input type="text" name="birthday" id="phone" class="profile-field__input profile-field__input-disabled" value="+7 (931) 555-55-55" disabled>
+             <span class="ico-after ico-mobile"></span>
            </div>
-
 
            <div class="profile-field">
-             <div class="profile-field__lcell ico-before ico-before-content ico-map">Город передвижения:</div>
-             <div class="profile-field__rcell">Санкт-Петербург</div>
+             <label class="profile-field__label" for="email"></label>
+             <input type="email" name="email" id="email" class="profile-field__input profile-field__input-disabled " value="test@test.com" disabled>
+             <span class="ico-after ico-email"></span>
            </div>
-
-         </div>
-
-         <div class="profile__fields">
 
            <div class="profile-field">
-             <div class="profile-field__lcell"></div>
-             <div class="profile-field__rcell"></div>
-             <div class="profile-field__rcell"><button class="btn-blue">Редактировать</button></div>
+             <label class="profile-field__label" for="city"></label>
+             <input type="text" name="city" id="city" class="profile-field__input profile-field__input-disabled " value="Санкт-Петербург" disabled>
+             <span class="ico-after ico-map"></span>
+
            </div>
 
+           <button class="btn-blue">Редактировать</button>
 
-         </div>
-
-
+         </form>
 
        </div>
 
